@@ -4,7 +4,6 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    
     extend: {
       colors: {
         'header': '#efc7b2',
@@ -16,7 +15,12 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Work Sans', 'sans-serif']
+    },
+    size:{
+      '128': '32rem'
     }
+    
+    
   },
   plugins: [],
 }
