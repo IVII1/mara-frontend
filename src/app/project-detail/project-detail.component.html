@@ -1,0 +1,39 @@
+@if (allImages.length > 0) {
+	<div class="flex flex-row items-start w-full max-w-4xl mx-auto gap-8">
+	  <!-- Carousel on the left -->
+	  <div class="relative flex-1">
+		<ngb-carousel [interval]="0"> <!-- Disable auto-sliding -->
+		  @for (image of allImages; track image; let i = $index) {
+			<ng-template ngbSlide>
+			  <div class="relative h-full w-full flex items-center justify-center overflow-hidden">
+				<img 
+				  [src]="image" 
+				  [alt]="'Slide ' + (i + 1)"
+				  class="w-full h-full object-contain" 
+				/>
+			  </div>
+			</ng-template>
+		  }
+		</ngb-carousel>
+	  </div>
+  
+	  <!-- Text on the right -->
+	  <div class="flex-1 p-4">
+		<h2 class="text-2xl font-bold mb-4">{{project.title}}</h2>
+		<div class="text-gray-700 font-medium"></div>
+		<p>
+		  {{project.material}}
+		</p>
+		<p>
+		  {{getDimensions()}}
+		</p>
+		<p>
+		  {{project.production_year}}
+		</p>
+	  </div>
+	</div>
+  } @else {
+	<div class="w-full max-w-4xl mx-auto p-4 text-center">
+	  <p class="text-gray-500">Loading images...</p>
+	</div>
+  }

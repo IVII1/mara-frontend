@@ -1,19 +1,65 @@
-import { Component, Input } from '@angular/core';
-import { Project } from '../models/project.model';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectService } from '../services/project.service';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { ExtendedProject } from '../models/extended-project.model';
+import { Image } from '../models/image.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [],
   templateUrl: './project-detail.component.html',
-  styleUrl: './project-detail.component.css'
+  styleUrls: ['./project-detail.component.css'],
+  standalone: true,
+  imports: [NgbCarouselModule, CommonModule]
 })
-export class ProjectDetailComponent {
- @Input() project!: Project;
+export class ProjectDetailComponent implements OnInit {
+  project!: ExtendedProject;
+  allImages: string[] = [];
 
- constructor(private http: HttpClient){}
+  constructor(
+    private projectService: ProjectService,
+    private route: ActivatedRoute
+  ) {}
 
- getImages(id: string){
-  
- }
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      const id = +params['id'];
+      if (id) {
+        this.getProjectDetails(id);
+      }
+    });
+  }
+
+  getProjectDetails(id: number): void {
+    this.projectService.getSingle(id).subscribe({
+      next: (response: any) => {
+        // Access the data property from the response
+        this.project = response.data;
+        
+        // Reset allImages array
+        this.allImages = [];
+        
+        // Add thumbnail if it exists
+        if (this.project.thumbnail) {
+          this.allImages.push(this.project.thumbnail);
+        }
+        
+        // Add additional images
+        if (this.project.images && this.project.images.length > 0) {
+          const additionalImages = this.project.images.map(img => img.image_url);
+          this.allImages.push(...additionalImages);
+        }
+        
+        console.log('Project:', this.project);
+        console.log('All Images:', this.allImages);
+      },
+      error: (err) => {
+        console.error('Error fetching project:', err);
+      },
+    });
+  }
+  getDimensions(): string {
+    return `${this.project.height}${this.project.units} x ${this.project.width}${this.project.units} x ${this.project.depth}${this.project.units}`;
+  }
 }

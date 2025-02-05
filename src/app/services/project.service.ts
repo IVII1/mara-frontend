@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment.development';
 import { Project } from '../models/project.model';
+import { ExtendedProject } from '../models/extended-project.model';
  // Import environment
 
 
@@ -25,5 +26,15 @@ export class ProjectService {
         })
       );
   }
-  getSingle(){}
+  getSingle(id: number){
+    return this.http
+    .get<ExtendedProject>(`${environment.apiBaseUrl}/api/projects/${id}?include=images`)  // Change type to Project[]
+    .pipe(
+      tap((response) => console.log('API Response:', response)),
+      map((response) => {
+        console.log('Extracted Data:', response);
+        return response;  // Return the array directly
+      })
+    );
+  }
 }
