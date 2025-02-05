@@ -1,8 +1,10 @@
 @if (allImages.length > 0) {
-	<div class="flex flex-row items-start w-full max-w-4xl mx-auto gap-8">
+	<div class="flex flex-row items-start w-full max-w-4xl mx-auto gap-8 font-sans">
 	  <!-- Carousel on the left -->
 	  <div class="relative flex-1">
-		<ngb-carousel [interval]="0"> <!-- Disable auto-sliding -->
+		<ngb-carousel [interval]="0" [showNavigationIndicators]="allImages.length > 1" 
+        [showNavigationArrows]="allImages.length > 1"> 
+			
 		  @for (image of allImages; track image; let i = $index) {
 			<ng-template ngbSlide>
 			  <div class="relative h-full w-full flex items-center justify-center overflow-hidden">
