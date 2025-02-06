@@ -1,45 +1,40 @@
-<div class=" font-sans w-[90vw] mx-auto p-8 bg-white">
-    <h2 class="text-2xl font-bold mb-4">Contact</h2>
-
-    <form  class="w-full space-y-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="font-sans w-full sm:w-[60vw] mx-auto p-4 sm:p-8 bg-white">
+    <h2 class="text-2xl font-bold mb-4">Get in touch</h2>
+    <form class="w-full space-y-4" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
             <label for="name" class="block font-bold">Name</label>
             <input type="text" id="name" formControlName="name"
                 class="w-full border-2 border-gray-400 p-2 transition-colors duration-200 focus:ring-0 focus:border-4 focus:border-black outline-none">
-                @if (nameIsInvalid){
-                    <p>Please enter your name</p>
-                }
+            @if (nameIsInvalid){
+                <p>Please enter your name</p>
+            }
         </div>
-
         <div>
             <label for="email" class="block font-bold">E-Mail address</label>
             <input type="email" id="email" formControlName="email"
                 class="w-full border-2 border-gray-400 p-2 transition-colors duration-200 focus:ring-0 focus:border-4 focus:border-black outline-none">
-                @if (emailIsInvalid){
-                    <p>Please enter  a valid email</p>
-                }
+            @if (emailIsInvalid){
+                <p>Please enter a valid email</p>
+            }
         </div>
-
         <div>
             <label for="subject" class="block font-bold">Subject</label>
             <input type="text" id="subject" formControlName="subject"
                 class="w-full border-2 border-gray-400 p-2 transition-colors duration-200 focus:ring-0 focus:border-4 focus:border-black outline-none">
-                @if (subjectIsInvalid){
-                    <p>Please enter a subject</p>
-                }
+            @if (subjectIsInvalid){
+                <p>Please enter a subject</p>
+            }
         </div>
-
         <div>
             <label for="content" class="block font-bold">Message</label>
             <textarea id="content" formControlName="content"
                 class="w-full border-2 border-gray-400 p-2 h-32 transition-colors duration-200 focus:ring-0 focus:border-4 focus:border-black outline-none resize-none"></textarea>
-                @if (messageIsInvalid){
-                    <p>Please enter your message</p>
-                }
+            @if (messageIsInvalid){
+                <p>Please enter your message</p>
+            }
         </div>
-
         <button type="submit"
-            class="w-full bg-[#f5f4f4]  font-bold py-3 border-2 border-gray-400  hover:bg-footer hover:text-white">
+            class="w-full bg-[#f5f4f4] font-bold py-3 border-2 border-gray-400 hover:bg-footer hover:text-white">
             Submit
         </button>
     </form>

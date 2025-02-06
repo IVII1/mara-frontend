@@ -3,7 +3,8 @@
 	  <!-- Carousel on the left -->
 	  <div class="relative flex-1">
 		<ngb-carousel [interval]="0" [showNavigationIndicators]="allImages.length > 1" 
-        [showNavigationArrows]="allImages.length > 1"> 
+        [showNavigationArrows]="allImages.length > 1"
+		> 
 			
 		  @for (image of allImages; track image; let i = $index) {
 			<ng-template ngbSlide>
