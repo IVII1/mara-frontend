@@ -34,25 +34,22 @@ export class ProjectDetailComponent implements OnInit {
   getProjectDetails(id: number): void {
     this.projectService.getSingle(id).subscribe({
       next: (response: any) => {
-        // Access the data property from the response
         this.project = response.data;
         
-        // Reset allImages array
+  
         this.allImages = [];
         
-        // Add thumbnail if it exists
         if (this.project.thumbnail) {
           this.allImages.push(this.project.thumbnail);
         }
         
-        // Add additional images
+
         if (this.project.images && this.project.images.length > 0) {
           const additionalImages = this.project.images.map(img => img.image_url);
           this.allImages.push(...additionalImages);
         }
         
-        console.log('Project:', this.project);
-        console.log('All Images:', this.allImages);
+     
       },
       error: (err) => {
         console.error('Error fetching project:', err);

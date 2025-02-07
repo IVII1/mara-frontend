@@ -10,7 +10,6 @@ import { FooterComponent } from "./footer/footer.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-// app.component.ts
 export class AppComponent  {
 
 }

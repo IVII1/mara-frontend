@@ -18,10 +18,10 @@ export class LandingPageComponent {
     this.projectsService.get().subscribe({
       next: (data) => {
         this.projects = data;
-        console.log('Projects loaded:', this.projects);
+    
       },
       error: (err) => {
-        console.error('Error fetching projects:', err);
+ 
       },
     });
 }
