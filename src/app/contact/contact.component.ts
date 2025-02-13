@@ -33,6 +33,7 @@ onSubmit(): void {
       .subscribe({
         next: () => {
          this.message = 'Message sent, thank you!' 
+         this.form.reset
         },
         error: () => {},
       });
