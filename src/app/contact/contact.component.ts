@@ -32,17 +32,19 @@ onSubmit(): void {
       .sendMessage(this.form.value)
       .subscribe({
         next: () => {
-         this.message = 'Message sent, thank you!' 
-         this.form.reset
+          this.message = 'Message sent, thank you!';
+          this.form.reset(); // Reset the form to its initial state
+          this.form.markAsPristine(); // Mark the form as pristine
+          this.form.markAsUntouched(); // Mark the form as untouched
         },
-        error: () => {},
+        error: () => {
+          this.message = 'An error occurred while sending the message.';
+        },
       });
   } else {
     this.message = 'Form is invalid, please fill out all the required fields.';
   }
-
 }
-
 get nameIsInvalid(){
   return this.form.controls.name.touched && 
   this.form.controls.name.dirty && 
