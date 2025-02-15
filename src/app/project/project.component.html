@@ -1,5 +1,5 @@
 <div class="project-card w-full">
-    <div class="image bg-text w-full sm:w-128 sm:h-128">
+    <div class="image bg-text w-full aspect-square">
         <a [routerLink]="['/projects/', project.id]" routerLinkActive="router-link-active" class="block w-full h-full">
             <img [src]="project.thumbnail" [alt]="project.title" class="w-full h-full object-cover">
         </a>
