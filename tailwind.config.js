@@ -9,7 +9,7 @@ module.exports = {
         'header': '#ffffff',
         'background': '#ffffff',
         'text': '#000000',
-        'footer': '#1B1917'
+        'footer': '#ebebeb'
 
       }
     },
