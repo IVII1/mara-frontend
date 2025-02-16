@@ -6,14 +6,17 @@ import { ContactComponent } from './contact/contact.component';
 export const routes: Routes = [
     {
         path: '',
-        component: LandingPageComponent
+        component: LandingPageComponent,
+
     },{
         path: 'contact',
-        component: ContactComponent 
+        component: ContactComponent,
+
     },
     {
         path: 'projects/:id',
-        component: ProjectDetailComponent
+        component: ProjectDetailComponent,
+        
     },
     
 ];

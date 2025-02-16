@@ -1,31 +1,30 @@
 <footer class="w-full bg-footer px-4 py-4 sm:py-4 sm:h-10 flex flex-col sm:flex-row items-center justify-center">
-    <!-- Logo: On mobile, it stays on top. On desktop, it moves to the far right with ml-auto -->
+    <!-- Logo -->
     <div class="flex items-center sm:ml-auto sm:order-2">
         <a routerLink="/">
             <svg width="30" height="30" viewBox="0 0 128 128" fill="" xmlns="http://www.w3.org/2000/svg">
-                <rect width="23.27" height="132.457" transform="matrix(0.855977 0.517015 -0.483176 0.875523 86 0)" fill="#000000"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M62.5263 37.3415L41.9186 0L22 12.0309L49.2472 61.4034L62.5263 37.3415ZM65.413 90.6961L86 128L105.919 115.969L78.6921 66.6342L65.413 90.6961Z" fill="#000000"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M47.9585 63.7385L41.362 51.7853H0V75.8472H41.2761L47.9585 63.7385ZM80.2902 63.7385L86.9726 75.8472H128V51.7853H86.8867L80.2902 63.7385Z" fill="#000000"/>
+                <rect width="23.27" height="132.457" transform="matrix(0.855977 0.517015 -0.483176 0.875523 86 0)" fill="#1A1A1A"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M62.5263 37.3415L41.9186 0L22 12.0309L49.2472 61.4034L62.5263 37.3415ZM65.413 90.6961L86 128L105.919 115.969L78.6921 66.6342L65.413 90.6961Z" fill="#1a1a1a"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M47.9585 63.7385L41.362 51.7853H0V75.8472H41.2761L47.9585 63.7385ZM80.2902 63.7385L86.9726 75.8472H128V51.7853H86.8867L80.2902 63.7385Z" fill="#1a1a1a"/>
             </svg>
         </a>
     </div>
 
-    <!-- Email and Icons: On mobile, icons come first, then email. On desktop, they are in a row -->
     <div class="flex flex-col-reverse sm:flex-row items-center gap-1 sm:order-1">
         <!-- Icons -->
         <div class="flex items-center gap-3">
             <a [routerLink]="['/contact']" routerLinkActive="router-link-active">
                 <svg width="24" height="20" viewBox="0 0 162 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="98" height="8.16" rx="4.08" transform="matrix(0.825285 0.564716 -0.43794 0.899004 4.39453 6.69763)" fill="#000000"/>
-                    <rect width="98.352" height="8" rx="4" transform="matrix(0.825285 -0.564716 0.43794 0.899004 75.6748 62.1741)" fill="#000000"/>
+                    <rect width="98" height="8.16" rx="4.08" transform="matrix(0.825285 0.564716 -0.43794 0.899004 4.39453 6.69763)" fill="#1a1a1a"/>
+                    <rect width="98.352" height="8" rx="4" transform="matrix(0.825285 -0.564716 0.43794 0.899004 75.6748 62.1741)" fill="#1a1a1a"/>
                     <rect x="4" y="4" width="154" height="120" rx="12" stroke="#000000" stroke-width="8"/>
                 </svg>
             </a>
             <a target="_blank" href="https://www.instagram.com/maruljo/">
                 <svg width="20" height="20" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="5" y="5" width="118" height="118" rx="27" stroke="#000000" stroke-width="10"/>
-                    <circle cx="64" cy="64" r="27" stroke="#000000" stroke-width="10"/>
-                    <circle cx="102" cy="26" r="4" stroke="#000000" stroke-width="4"/>
+                    <rect x="5" y="5" width="118" height="118" rx="27" stroke="#1a1a1a" stroke-width="10"/>
+                    <circle cx="64" cy="64" r="27" stroke="#1a1a1a" stroke-width="10"/>
+                    <circle cx="102" cy="26" r="4" stroke="#1a1a1a" stroke-width="4"/>
                 </svg>
             </a>
         </div>
@@ -33,7 +32,7 @@
         <!-- Email -->
         <div class="my-2 sm:my-0 sm:ml-3">
             <a href="mailto:marajov@mit.edu" class="opacity-70 hover:text-blue-600 transition-colors duration-75">
-                <span class="text-black font-sans">marajov&#64;mit.edu</span>
+                <span class="text-[#1a1a1a] font-sans">marajov&#64;mit.edu</span>
             </a>
         </div>
     </div>

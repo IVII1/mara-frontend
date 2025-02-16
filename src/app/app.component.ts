@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -11,5 +12,6 @@ import { FooterComponent } from "./footer/footer.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent  {
+
 
 }
