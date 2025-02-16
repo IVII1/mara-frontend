@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         'header': '#ffffff',
         'background': '#ffffff',
-        'text': '#000000',
+        'text': '#1a1a1a',
         'footer': '#ebebeb'
 
       }
