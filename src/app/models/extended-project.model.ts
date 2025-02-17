@@ -3,6 +3,7 @@ import { Image } from "./image.model";
 export class ExtendedProject {
     id!: number;
     thumbnail!: string;
+    description!: string
     cloudinary_id!: string;
     title!: string;
     material!: string;

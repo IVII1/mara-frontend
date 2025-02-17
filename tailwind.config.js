@@ -21,7 +21,6 @@ module.exports = {
       '168': '42rem'
     },
    
-    
   },
   plugins: [],
 }
