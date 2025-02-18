@@ -16,7 +16,7 @@ export class ProjectService {
   
   get(): Observable<Project[]> {  
     return this.http
-      .get<Project[]>(`${environment.apiBaseUrl}/api/projects`)     
+      .get<Project[]>(`${environment.apiBaseUrl}/api/projects?sort=position`)     
   }
   getSingle(id: number){
     return this.http
