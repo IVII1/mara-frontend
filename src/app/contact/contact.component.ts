@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MessageService } from '../services/message.service';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -26,23 +27,35 @@ form = new FormGroup({
   }),
 })
 message!: string
+loading!: boolean;
 onSubmit(): void {
-  if (this.form.valid) {
-    this.messageService
-      .sendMessage(this.form.value)
-      .subscribe({
-        next: () => {
-          this.message = 'Message sent, thank you!';
-          this.form.reset(); 
-          this.form.markAsPristine(); 
-          this.form.markAsUntouched(); 
-        },
-       
-      });
-  } else {
-    this.message = 'Form is invalid, please fill out all the fields.';
+  if (this.form.invalid) {
+    this.message = 'Please fill out all required fields.';
+    return;
   }
+
+  this.loading = true;
+  this.message = '';
+
+  this.messageService.sendMessage(this.form.value)
+    
+    .subscribe({
+      next: (response) => {
+        if (response) {
+          this.message = 'Message sent successfully!';
+          this.form.reset();
+          this.form.markAsPristine();
+          this.form.markAsUntouched();
+        }
+        this.loading = false; 
+      },
+      error: () => {
+        this.loading = false; 
+        this.message = 'Failed to send message. Please try again later.';
+      }
+    });
 }
+
 get nameIsInvalid(){
   return this.form.controls.name.touched && 
   this.form.controls.name.dirty && 
