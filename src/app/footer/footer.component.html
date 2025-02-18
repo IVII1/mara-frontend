@@ -2,37 +2,109 @@
     <!-- Logo -->
     <div class="flex items-center sm:ml-auto sm:order-2">
         <a routerLink="/">
-            <svg width="30" height="30" viewBox="0 0 128 128" fill="" xmlns="http://www.w3.org/2000/svg">
-                <rect width="23.27" height="132.457" transform="matrix(0.855977 0.517015 -0.483176 0.875523 86 0)" fill="#1A1A1A"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M62.5263 37.3415L41.9186 0L22 12.0309L49.2472 61.4034L62.5263 37.3415ZM65.413 90.6961L86 128L105.919 115.969L78.6921 66.6342L65.413 90.6961Z" fill="#1a1a1a"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M47.9585 63.7385L41.362 51.7853H0V75.8472H41.2761L47.9585 63.7385ZM80.2902 63.7385L86.9726 75.8472H128V51.7853H86.8867L80.2902 63.7385Z" fill="#1a1a1a"/>
-            </svg>
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="transition-transform duration-300 ease-in-out hover:rotate-12"
+    > <rect 
+        width="11.635" 
+        height="66.2284" 
+        transform="matrix(0.855977 0.517015 -0.483176 0.875523 43 0)" 
+        fill="#1a1a1a"
+      />
+      <path 
+        fillRule="evenodd" 
+        clipRule="evenodd" 
+        d="M31.2631 18.6707L20.9593 0L11 6.01547L24.6236 30.7017L31.2631 18.6707ZM32.7065 45.348L43 64L52.9593 57.9845L39.346 33.3171L32.7065 45.348Z" 
+        fill="#1a1a1a"
+      />
+      <path 
+        fillRule="evenodd" 
+        clipRule="evenodd" 
+        d="M23.9793 31.8692L20.681 25.8927H0V37.9236H20.638L23.9793 31.8692ZM40.1451 31.8692L43.4863 37.9236H64V25.8927H43.4434L40.1451 31.8692Z" 
+        fill="#1a1a1a"
+      />
+    </svg>
         </a>
     </div>
 
     <div class="flex flex-col-reverse sm:flex-row items-center gap-1 sm:order-1">
         <!-- Icons -->
         <div class="flex items-center gap-3">
-            <a [routerLink]="['/contact']" routerLinkActive="router-link-active">
-                <svg width="24" height="20" viewBox="0 0 162 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="98" height="8.16" rx="4.08" transform="matrix(0.825285 0.564716 -0.43794 0.899004 4.39453 6.69763)" fill="#1a1a1a"/>
-                    <rect width="98.352" height="8" rx="4" transform="matrix(0.825285 -0.564716 0.43794 0.899004 75.6748 62.1741)" fill="#1a1a1a"/>
-                    <rect x="4" y="4" width="154" height="120" rx="12" stroke="#000000" stroke-width="10"/>
+            <a routerLink="/contact" class="block">
+                <svg
+                class="text-gray-600 hover:text-black transition-colors duration-300"
+                width="30"
+                height="25"
+                viewBox="0 0 82 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                  <rect
+                    class="fill-current"
+                    width="50.382"
+                    height="5.77338"
+                    rx="2.88669"
+                    transform="matrix(0.825285 0.564716 -0.43794 0.899004 2.52832 3.66043)"
+                  />
+                  <rect
+                    class="fill-current"
+                    width="50.6871"
+                    height="6"
+                    rx="3"
+                    transform="matrix(0.825285 -0.564716 0.43794 0.899004 37.0732 31.9404)"
+                  />
+                  <rect
+                    class="stroke-current"
+                    x="3.48291"
+                    y="3"
+                    width="75"
+                    height="58"
+                    rx="5"
+                    fill="none"
+                    stroke-width="6"
+                  />
                 </svg>
-            </a>
+              </a>
             <a target="_blank" href="https://www.instagram.com/maruljo/">
-                <svg width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="58" height="58" rx="13" stroke="#1a1a1a" stroke-width="6"/>
-                    <circle cx="32" cy="32" r="13" stroke="#1a1a1a" stroke-width="6"/>
-                    <circle cx="49" cy="15" r="3" fill="#1a1a1a"/>
+                <svg 
+                  class="text-gray-600 hover:text-black transition-colors duration-300"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect 
+                    class="stroke-current"
+                    x="3" 
+                    y="3" 
+                    width="58" 
+                    height="58" 
+                    rx="13" 
+                    fill="none"
+                    stroke-width="6"
+                  />
+                  <circle 
+                    class="stroke-current"
+                    cx="32" 
+                    cy="32" 
+                    r="13" 
+                    fill="none"
+                    stroke-width="6"
+                  />
+                  <circle 
+                    class="fill-current"
+                    cx="49" 
+                    cy="15" 
+                    r="3"
+                  />
                 </svg>
-            </a>
+              </a>
         </div>
 
         <!-- Email -->
         <div class="my-2 sm:my-0 sm:ml-3">
             <a href="mailto:marajov@mit.edu" class="opacity-70 hover:text-blue-600 transition-colors duration-75">
-                <span class="text-[#1a1a1a] font-sans">marajov&#64;mit.edu</span>
+                <span class="text-gray-800 hover:text-black font-sans font-medium ease-in">marajov&#64;mit.edu</span>
             </a>
         </div>
     </div>
