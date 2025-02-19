@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class ProjectDetailComponent implements OnInit {
   allImages: any[] = [];
   activeSlide = 0; 
-  projectData: any = {}; // Stores main project details
+  projectData: any = {}; 
 
   constructor(
     private projectService: ProjectService,
@@ -33,12 +33,12 @@ export class ProjectDetailComponent implements OnInit {
   getProjectDetails(id: number): void {
     this.projectService.getSingle(id).subscribe({
       next: (response: any) => {
-        this.projectData = response.data; // Store project details
+        this.projectData = response.data; 
 
-        // Initialize images with the main project as the first slide
+   
         this.allImages = [this.projectData, ...this.projectData.images];
 
-        console.log('All images:', this.allImages);
+       
       },
       error: (err) => {
         console.error('Error fetching project:', err);
@@ -46,13 +46,12 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
-  // Track active slide index
+
   onSlideChange(event: NgbSlideEvent): void {
     const slideIndex = Number(event.current.replace('ngb-slide-', ''));
     this.activeSlide = slideIndex;
   }
 
-  // Get current image or fallback to project data
   get currentImage(): any {
     const image = this.allImages[this.activeSlide] || {};
     
@@ -68,11 +67,11 @@ export class ProjectDetailComponent implements OnInit {
     };
   }
 
-  // Helper to format dimensions
+
   getDimensions(image: any): string {
     return image.height && image.width && image.depth
       ? `${image.height}${image.units || ''} x ${image.width}${image.units || ''} x ${image.depth}${image.units || ''}`
-      : this.getDimensions(this.projectData); // Fallback to project dimensions
+      : this.getDimensions(this.projectData); 
   }
 }
 
