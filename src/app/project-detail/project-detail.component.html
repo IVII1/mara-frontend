@@ -1,66 +1,54 @@
 @if (allImages.length > 0) {
 	<div class="container-fluid px-4 md:px-8 mt-8">
-		<div class="flex  flex-col md:flex-row items-start gap-4 md:gap-8">
-		  <!-- Carousel -->
-		  <div class="w-full md:w-2/5 h-auto md:h-screen flex items-start">
-			<ngb-carousel
-			  [interval]="0"
-			  [showNavigationIndicators]="false"
-			  [showNavigationArrows]="allImages.length > 1"
-			  [animation]="false"
-			  class="w-full h-full"
-			>
-			  @for (image of allImages; track image; let i = $index) {
-				<ng-template ngbSlide>
-				  <div class="relative w-full h-80% flex items-start justify-start">
-					<img
-					  [src]="image"
-					  [alt]="'Slide ' + (i + 1)"
-					  class="w-80% h-80% object-cover md:object-cover block w-full h-full aspect-square"
-					/>
-				  </div>
-				</ng-template>
-			  }
-			</ngb-carousel>
-		  </div>
-	  
-		  <!-- Text content -->
-		  <div class="w-full md:w-3/5 pl-0 md:pl-0 font-sans">
-			<h2 class="text-xl font-semibold mb-3">{{project.title}}</h2>
-			<div class="text-gray-700 font-medium"></div>
-			<p>{{project.material}}</p>
-			<p>{{getDimensions()}}</p>
-			<p>{{project.production_year}}</p>
-			<div class="mt-4 w-96">
-				<p class="italic">
-					{{project.description}} 
-				</p>
-			</div>
+	  <div class="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+		<!-- Carousel -->
+		<div class="w-full md:w-2/5 h-auto md:h-screen flex items-start">
+		  <ngb-carousel
+			#carousel
+			[interval]="0"
+			[showNavigationIndicators]="false"
+			[showNavigationArrows]="allImages.length > 1"
+			[animation]="false"
+			(slide)="onSlideChange($event)"
+			class="w-full h-full"
+		  >
+			@for (image of allImages; track image; let i = $index) {
+			  <ng-template ngbSlide [id]="'ngb-slide-' + i">
+				<div class="relative w-full h-80% flex items-start justify-start">
+				  <img
+					[src]="image.image_url"
+					[alt]="'Slide ' + (i + 1)"
+					class="w-full h-full object-cover aspect-square"
+				  />
+				</div>
+			  </ng-template>
+			}
+		  </ngb-carousel>
+		</div>
+  
+		<!-- Text Content -->
+		<div class="w-full md:w-3/5 pl-0 md:pl-0 font-sans">
+		  <h2 class="text-xl font-semibold mb-3">{{ currentImage.title }}</h2>
+		  
+		  <p> {{ currentImage.material }}</p>
+		  <p> {{ getDimensions(currentImage) }}</p>
+		  <p> {{ currentImage.production_year }}</p>
+		  
+		  <div class="mt-4 w-96">
+			<p class="italic">
+			  {{ currentImage.description }}
+			</p>
 		  </div>
 		</div>
 	  </div>
-	  
+	</div>
   } @else {
-	<div class="flex justify-center">
-		<svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
-		  class="animate-spin"
-	  > <rect 
-		  width="11.635" 
-		  height="66.2284" 
-		  transform="matrix(0.855977 0.517015 -0.483176 0.875523 43 0)" 
-		  fill="#1a1a1a"
-		/>
-		<path 
-		  fillRule="evenodd" 
-		  clipRule="evenodd" 
-		  d="M31.2631 18.6707L20.9593 0L11 6.01547L24.6236 30.7017L31.2631 18.6707ZM32.7065 45.348L43 64L52.9593 57.9845L39.346 33.3171L32.7065 45.348Z" 
-		  fill="#1a1a1a"
-		/>
-		<path 
-		  fillRule="evenodd" 
-		  clipRule="evenodd" 
-		  d="M23.9793 31.8692L20.681 25.8927H0V37.9236H20.638L23.9793 31.8692ZM40.1451 31.8692L43.4863 37.9236H64V25.8927H43.4434L40.1451 31.8692Z" 
-		  fill="#1a1a1a"
-		/>
-	  </svg></div>
+	<div class="flex justify-center mt-12">
+	  <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="animate-spin">
+		<rect width="11.635" height="66.2284" transform="matrix(0.855977 0.517015 -0.483176 0.875523 43 0)" fill="#1a1a1a" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M31.2631 18.6707L20.9593 0L11 6.01547L24.6236 30.7017L31.2631 18.6707ZM32.7065 45.348L43 64L52.9593 57.9845L39.346 33.3171L32.7065 45.348Z" fill="#1a1a1a" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M23.9793 31.8692L20.681 25.8927H0V37.9236H20.638L23.9793 31.8692ZM40.1451 31.8692L43.4863 37.9236H64V25.8927H43.4434L40.1451 31.8692Z" fill="#1a1a1a" />
+	  </svg>
+	</div>
   }
+  

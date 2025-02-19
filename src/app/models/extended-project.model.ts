@@ -2,7 +2,7 @@ import { Image } from "./image.model";
 
 export class ExtendedProject {
     id!: number;
-    thumbnail!: string;
+    image_url!: string;
     description!: string
     cloudinary_id!: string;
     title!: string;
@@ -12,7 +12,7 @@ export class ExtendedProject {
     depth!: number;
     units!: string;
     production_year!: number;
-    images!: Image[];
+    images!: Image[]
     create_at!: string;
     updated_at!: string;
 }

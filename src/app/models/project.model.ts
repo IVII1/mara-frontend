@@ -1,6 +1,6 @@
 export class Project {
     id!: number;
-    thumbnail!: string;
+    image_url!: string;
     cloudinary_id!: string;
     title!: string;
     material!: string;
@@ -9,6 +9,8 @@ export class Project {
     depth!: number;
     units!: string;
     production_year!: number
+    description!: string
+    position!: number
     create_at!: string
     updated_at!: string
 }
