@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../services/project.service';
 import { NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { map, filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-detail',
@@ -22,33 +23,34 @@ export class ProjectDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const id = +params['id'];
-      if (id) {
-        this.getProjectDetails(id);
+    this.route.params.pipe(
+      map(params => Number(params['id'])),
+      filter(id => !isNaN(id)),
+      switchMap(id => this.projectService.getSingle(id))
+    ).subscribe({
+      next: (response: any) => {
+       
+
+        this.projectData = response.data;
+        // Ensure we're working with arrays and handle potential null/undefined
+        const images = response.data.images || [];
+        this.allImages = Array.isArray(images) 
+          ? [this.projectData, ...images]
+          : [this.projectData];
+        
+     // Debug log
+      },
+      error: (err) => {
+        console.error('Error fetching project:', err);
+        this.allImages = [];
       }
     });
   }
 
-  getProjectDetails(id: number): void {
-    this.projectService.getSingle(id).subscribe({
-      next: (response: any) => {
-        this.projectData = response.data; 
-
-   
-        this.allImages = [this.projectData, ...this.projectData.images];
-
-       
-      },
-      error: (err) => {
-        console.error('Error fetching project:', err);
-      },
-    });
-  }
-
-
   onSlideChange(event: NgbSlideEvent): void {
+    // Extract the slide number from the ID string "ngb-slide-0", "ngb-slide-1", etc.
     const slideIndex = Number(event.current.replace('ngb-slide-', ''));
+    // Update the activeSlide property to track which slide is currently shown
     this.activeSlide = slideIndex;
   }
 
@@ -66,7 +68,6 @@ export class ProjectDetailComponent implements OnInit {
       units: image.units || this.projectData.units
     };
   }
-
 
   getDimensions(image: any): string {
     return image.height && image.width && image.depth
