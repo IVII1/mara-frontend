@@ -18,7 +18,7 @@
                   <img
                     [src]="image.image_url"
                     [alt]="'Slide ' + (i + 1)"
-                    class="w-full h-full object-cover aspect-square"
+                    class="w-full h-full object-cover aspect-auto"
                   />
                 </div>
               </ng-template>
@@ -46,11 +46,11 @@
           
           </p>
         }
-          <div class="mt-4 w-96">
-            <p class="italic">
-              {{ currentImage.description }}
-            </p>
-          </div>
+        <div class="mt-4 w-96">
+          <p class="italic whitespace-pre-line" >
+            {{ currentImage.description }}
+          </p>
+        </div>
         </div>
       </div>
     </div>
