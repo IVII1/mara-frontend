@@ -1,10 +1,28 @@
-<div class="project-card w-full p-0">
-    <div class="image bg-text w-full aspect-square p-0 overflow-hidden">
-        <a [routerLink]="['/projects/', project.id]" routerLinkActive="router-link-active" class="block w-full h-full m-0 p-0">
-            <img [src]="currentImageUrl" [alt]="project.title" 
-                class="block w-full h-full object-cover m-0 p-0 hover:scale-105 duration-100"
-                (mouseenter)="isHovered = true"
-                (mouseleave)="isHovered = false">
-        </a> 
+<div class="project-card w-full">
+    <div class="image bg-transparent w-full aspect-square overflow-hidden">
+      <a
+        [routerLink]="['/projects/', project.id]"
+        routerLinkActive="router-link-active"
+        class="block w-full h-full m-0"
+      >
+        <img
+          [src]="currentImageUrl"
+          [alt]="project.title"
+          class="
+            object-cover
+            w-full
+            h-full
+            m-0
+            transform
+            transition-transform
+            duration-100
+            scale-95
+            hover:scale-100
+          "
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+        />
+      </a>
     </div>
-</div>
+  </div>
+  

@@ -16,10 +16,13 @@ export class ProjectService {
   
   get(): Observable<Project[]> {  
     return this.http
-      .get<Project[]>(`${environment.apiBaseUrl}/api/projects?sort=position`)     
+      .get<Project[]>(`${environment.apiBaseUrl}/api/projects`)     
   }
   getSingle(id: number){
     return this.http
     .get<ExtendedProject>(`${environment.apiBaseUrl}/api/projects/${id}?include=images`)   
+  }
+  filterProjects(queryParams: string){
+    return this.http.get<Project[]>(`${environment.apiBaseUrl}/api/projects?${queryParams}`)
   }
 }

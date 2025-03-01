@@ -1,0 +1,21 @@
+input[type="checkbox"] {
+          
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="checkbox"]:checked {
+            background-color: #000000;
+            border: 1px solid #FFFFFF;
+            
+        }
+        input[type="checkbox"]:checked + label {
+            text-decoration: underline;
+        
+        }
+        label {
+            cursor: pointer;
+            
+        }

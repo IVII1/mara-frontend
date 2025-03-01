@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../services/project.service';
-import { NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbSlideEvent, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { map, filter, switchMap } from 'rxjs/operators';
 
@@ -10,7 +10,7 @@ import { map, filter, switchMap } from 'rxjs/operators';
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css'],
   standalone: true,
-  imports: [NgbCarouselModule, CommonModule,]
+  imports: [NgbCarouselModule, CommonModule, NgbTooltip]
 })
 export class ProjectDetailComponent implements OnInit {
   allImages: any[] = [];
@@ -59,7 +59,7 @@ export class ProjectDetailComponent implements OnInit {
     
     return {
       title: image.title || this.projectData.title || 'No Title',
-      material: image.material || this.projectData.material || 'N/A',
+      material: image.material || this.projectData.material || null,
       production_year: image.production_year || this.projectData.production_year || 'N/A',
       description: image.description || this.projectData.description || null,
       height: image.height || this.projectData.height,
@@ -72,7 +72,39 @@ export class ProjectDetailComponent implements OnInit {
   getDimensions(image: any): string {
     return image.height && image.width && image.depth
       ? `${image.height}${image.units || ''} x ${image.width}${image.units || ''} x ${image.depth}${image.units || ''}`
-      : this.getDimensions(this.projectData); 
+      : 'N/A'; 
   }
+
+  getConvertedDimensions(image: any): string {
+   
+  
+    const round = (value: number): number => {
+      return Math.round(value *10) / 10;
+    };
+   
+  
+    if (image.units === '"') {
+      return `${round(image.height * 2.54)} cm × ${round(image.width * 2.54)} cm × ${round(image.depth * 2.54)} cm`;
+    }
+    else if (image.units === 'ft') {
+      return `${round(image.height * 30.48)} cm × ${round(image.width * 30.48)} cm × ${round(image.depth * 30.48)} cm`;
+    }
+    else if (image.units === 'm') {
+      return `${round(image.height * 3.28)}ft × ${round(image.width * 3.28)}ft × ${round(image.depth * 3.28)}ft`;
+    }
+    else if (image.units === 'cm') {
+      return `${round(image.height * 0.394)}" × ${round(image.width * 0.394)}" × ${round(image.depth * 0.394)}"`;
+    }
+    else if(image.units === 'mm') { 
+      return `${round(image.height * 0.0394)}" × ${round(image.width * 0.0394)}" × ${round(image.depth * 0.0394)}"`;
+    }
+    else {
+      return 'N/A';
+    }
+    
+  }
+
+  
+
 }
 
