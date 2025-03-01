@@ -4,13 +4,14 @@ import { ProjectService } from '../services/project.service';
 import { NgbCarouselModule, NgbSlideEvent, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { map, filter, switchMap } from 'rxjs/operators';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css'],
   standalone: true,
-  imports: [NgbCarouselModule, CommonModule, NgbTooltip]
+  imports: [NgbCarouselModule, CommonModule, NgbTooltip, MarkdownModule]
 })
 export class ProjectDetailComponent implements OnInit {
   allImages: any[] = [];
