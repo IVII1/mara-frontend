@@ -1,3 +1,3 @@
 export const environment = {
-    apiBaseUrl: 'https://mara-api-v2.test'
+    apiBaseUrl: 'https://api.mball.org'
 };
