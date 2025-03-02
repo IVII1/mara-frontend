@@ -11,7 +11,13 @@ module.exports = {
         'text': '#1a1a1a',
         'footer': '#ebebeb'
 
-      }
+      },
+      screens: {
+      'sm': '640px',
+      'md': '900px',
+      'lg': '1024px',
+      'xl': '1280px'
+    }
     },
     fontFamily: {
       sans: ['Work Sans', 'sans-serif']
@@ -20,6 +26,7 @@ module.exports = {
       '128': '32rem',
       '168': '42rem'
     },
+    
    
   },
   plugins: [],
