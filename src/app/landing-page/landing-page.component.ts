@@ -45,6 +45,7 @@ export class LandingPageComponent implements OnInit {
       next: (response: any) => {
         this.projects = response.data;
         this.filteredProjects = this.projects;
+        console.log(this.projects);
       },
       error: (err) => {
         console.error('Error loading projects:', err);
