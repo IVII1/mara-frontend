@@ -30,7 +30,7 @@ message!: string
 loading!: boolean;
 onSubmit(): void {
   if (this.form.invalid) {
-    this.message = 'Please fill out all required fields.';
+    this.message = 'Please fill out all the fields.';
     return;
   }
 
