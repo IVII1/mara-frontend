@@ -9,7 +9,7 @@ module.exports = {
         'header': '#ffffff',
         'background': '#fffff',
         'text': '#17191b',
-        'footer': '#f0f0ff'
+        'footer': '#f3f3f3'
 
       },
       screens: {
