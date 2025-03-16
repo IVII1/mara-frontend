@@ -6,10 +6,11 @@ import { Project } from '../models/project.model';
 import { CategoriesService } from '../services/categories.service';
 import { Categories } from '../models/categories.model';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-landing-page',
-  imports: [ProjectComponent, CommonModule, FormsModule],
+  imports: [ProjectComponent, CommonModule, FormsModule, FooterComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
